@@ -1,4 +1,6 @@
 import React from "react";
+import Task from "./Task";
+
 
 function TaskList({tasks, setTasks}) {
 
@@ -13,9 +15,18 @@ setTasks(
 
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {
+      tasks.map((task, index) => {
+        return <Task id={index}
+        key={index} 
+        task={task}
+        handleClickBtn={handleClickBtn}
+        />
+      })
+      }
     </div>
   );
 }
 
 export default TaskList;
+ 
